@@ -10,7 +10,7 @@ import {
   MobileNavMenu,
 } from "./resizable-navbar"
 import { useState } from "react"
-// import JoinUsPopup from '@components/JoinUsPopup';
+import JoinUsPopup from '@/components/JoinUsPopup/JoinUsPopup';
 
 export default function NavbarD() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -49,7 +49,7 @@ export default function NavbarD() {
         Join Now
       </NavbarButton>
 
-      {/* <JoinUsPopup isOpen={showPopup} onClose={() => setShowPopup(false)} /> */}
+      <JoinUsPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
 
               </NavBody>
             </div>
@@ -112,7 +112,7 @@ export default function NavbarD() {
                   <NavbarButton variant="primary" className="w-full" onClick={() => setShowPopup(true)}>
                     Join Now
                   </NavbarButton>
-                  {/* <JoinUsPopup isOpen={showPopup} onClose={() => setShowPopup(false)} /> */}
+                  <JoinUsPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
                 </MobileNavMenu>
               </MobileNav>
             </div>

@@ -1,8 +1,9 @@
-export default function Gallery_HultPrize() {
+import HultPrizePage from "@/components/event-specific-gallery/GalleryHultPrize"
+
+export default function Gallery_Specifc_HultPrize() {
   return (
     <div>
-      <h1>Contact Us</h1>
-      <p>Get in touch with E-Cell KIIT</p>
+      <HultPrizePage/>
     </div>
   );
 }

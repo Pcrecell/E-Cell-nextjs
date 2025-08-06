@@ -1,8 +1,9 @@
-export default function Gallery_ICamp() {
+import ICampPage from "@/components/event-specific-gallery/GalleryICamp"
+
+export default function Gallery_Specifc_ICampPage() {
   return (
     <div>
-      <h1>Contact Us</h1>
-      <p>Get in touch with E-Cell KIIT</p>
+      <ICampPage/>
     </div>
   );
 }

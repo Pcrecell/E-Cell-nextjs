@@ -1,8 +1,9 @@
-export default function Gallery_ESummit() {
+import ESummitPage from "@/components/event-specific-gallery/GalleryESummit"
+
+export default function Gallery_Specifc_ESummit() {
   return (
     <div>
-      <h1>Contact Us</h1>
-      <p>Get in touch with E-Cell KIIT</p>
+      <ESummitPage/>
     </div>
   );
 }

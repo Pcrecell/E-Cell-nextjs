@@ -1,8 +1,9 @@
-export default function Gallery_Maverick() {
+import MaverickPage from "@/components/event-specific-gallery/GalleryMaverick"
+
+export default function Gallery_Specifc_Maverick() {
   return (
     <div>
-      <h1>Contact Us</h1>
-      <p>Get in touch with E-Cell KIIT</p>
+      <MaverickPage/>
     </div>
   );
 }
