@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { past_speakers } from "../../../../public/images/image-links";
 import { Skeleton } from "@mui/material";
 import localFont from "next/font/local";
+import Image from "next/image";
 
 export const Transcity = localFont({
   src: "../../../../public/fonts/Transcity.otf",
@@ -247,8 +248,8 @@ const onDragMove = (e) => {
                   <img
                     src={speaker.image}
                     alt={speaker.alt || speaker.name}
-                    loading="lazy"
-                    fetchPriority="low"
+                    // loading="lazy"
+                    // fetchPriority="low"
                     className={`rounded-lg w-full h-full object-contain transition-opacity duration-700 ${loadedImages[index % 9] ? "opacity-100" : "opacity-0"} ${erroredImages[index % 9] ? "hidden" : ""}`}
                     onLoad={() => handleImageLoad(index % 9)}
                     onError={() => handleImageError(index % 9)}
