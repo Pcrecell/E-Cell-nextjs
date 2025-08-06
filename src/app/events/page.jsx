@@ -1,8 +1,14 @@
-export default function Events() {
+import Events from './Events'
+
+
+function App() {
   return (
-    <div>
-      <h1>E-Summit</h1>
-      <p>The premier entrepreneurship summit</p>
-    </div>
-  );
+    <>
+      <div className="bg-[#020b13]">
+        <Events />
+      </div>
+    </>
+  )
 }
+
+export default App

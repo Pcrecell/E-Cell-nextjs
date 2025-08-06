@@ -6,17 +6,17 @@ export const navbar = {
 // Highlights Section Home Page
 
 export const highlights = {
-  highlights_1: {link: "https://i.postimg.cc/3JLB67BY/DSC08728-1.avif", alt: ""},
-  highlights_2: {link: "https://i.postimg.cc/QtJ7Lkcv/DSC04628-1.avif", alt: ""},
-  highlights_3: {link: "https://i.postimg.cc/VkzLpQKs/DSC-9172-2.avif", alt: ""},
-  highlights_4: {link: "https://i.postimg.cc/HshBPdYX/ADI-2300-2.avif", alt: ""},
-  highlights_5: {link: "https://i.postimg.cc/MKvhGsX0/D24-0022-1.avif", alt: ""},
-  highlights_6: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/DSC_7755_11zon.jpg", alt: ""},
-  highlights_7: {link: "https://i.postimg.cc/fbMfPN1D/resized-683c20d4d50e7.avif", alt: ""},
+  highlights_1: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/DSC08728-1.avif", alt: ""},
+  highlights_2: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/DSC04628-1.webp", alt: ""},
+  highlights_3: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/DSC-9172-2.avif", alt: ""},
+  highlights_4: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/ADI-2300-2.avif", alt: ""},
+  highlights_5: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/D24-0022-1.avif", alt: ""},
+  highlights_6: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/DSC_7755_11zon.webp", alt: ""},
+  highlights_7: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/resized-683c20d4d50e7.avif", alt: ""},
   highlights_8: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/IMG-20250527-WA0008%202.png", alt: ""}, 
   highlights_9: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/DSC_0688%203.png", alt: ""}, 
-  highlights_10: {link: "https://i.postimg.cc/rFzWxh49/DSC-0190-2.avif", alt: ""},
-  highlights_11: {link: "https://i.postimg.cc/ZRHLPhs9/ADI-2748-1.avif", alt: ""},
+  highlights_10: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/DSC-0190-2.avif", alt: ""},
+  highlights_11: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/ADI-2748-1.avif", alt: ""},
 };
 
 //E-Summit Past Speakers
@@ -34,11 +34,9 @@ export const esummit_pastspeakers = {
 //E-Cell Events Page
 
 export const ecell_events = {
-    event_1 : {link: "", alt: ""},
-    event_2 : {link: "https://i.postimg.cc/C1s2B7Ds/image.png", alt: "E-Summit Logo"},
-    event_3 : {link: "https://i.postimg.cc/k54PdkbP/ICAMP-LOGO-white.png", alt: "ICamp Logo"},
-    event_4 : {link: "", alt: ""},
-    background: {link: "https://i.postimg.cc/7hBNQp9s/image.png", alt: "Background"}
+  noise_background: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/noise.webp?updatedAt=1754147128021", alt: "Noise", loading: "eager"},
+  grid: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/grid.webp", alt: "Grid", loading: "eager"},
+  
 };
 
 //Trusted By Companies 
@@ -58,7 +56,7 @@ export const trusted_by_companies = {
   company_12: {link: "https://i.postimg.cc/vm8CypZ0/jindal-up-01.png", alt: "Jindal"},
   company_13: {link: "https://ik.imagekit.io/d73k0qzwc/mayfair-01.png", alt: "Mayfair"},
   company_14: {link: "https://ik.imagekit.io/d73k0qzwc/redfm%2093.5-01.png", alt: "Red93.fm"},
-    text: {link: "https://i.postimg.cc/pXL11Dbp/image.png", alt: "Trust By Companies Text"}
+    text: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/image.webp", alt: "Trust By Companies Text"}
 };
 
 //E-Summit Hero Page
@@ -136,16 +134,16 @@ export const past_sponsors = {
 //E-Summit Past Speakers
 
 export const past_speakers = {
-  speaker_1: {link: "https://i.postimg.cc/Jn4tqvrc/image-removebg-preview.png", alt: "Shashi Tharoor"},
-  speaker_2: {link: "https://i.postimg.cc/bvh8sCtc/Sudeep-Gupta.png", alt: "Sudeep Gupta"},
-  speaker_3: {link: "https://i.postimg.cc/RZf4C5qL/Arsh-Goyal.png", alt: "Arsh Goyal"},
-  speaker_4: {link: "https://i.postimg.cc/Xvgp94bY/image-4-removebg-preview.png", alt: "Dan Ram"},
-  speaker_5: {link: "https://i.postimg.cc/x13z3KGQ/image-1-removebg-preview.png", alt: "Akshay Gurnani"},
-  speaker_6: {link: "https://i.postimg.cc/rmKRT3By/1631604743405-removebg-preview.png", alt: "Rakhi Pal"},
-  speaker_7: {link: "https://i.postimg.cc/sgsBxvkN/1680971764378-removebg-preview.png", alt: "Debendra Pradhan"},
-  speaker_8: {link: "https://i.postimg.cc/8zZCCwB7/1624933272912-removebg-preview.png", alt: "Anand Panda"},
-  speaker_9: {link: "https://i.postimg.cc/rpWNZ580/1618725077549-removebg-preview.png", alt: "Sandeep Jain"},
-  speaker_10: {link: "https://i.postimg.cc/CKs0DGGZ/Jayashree-Mohanty.png", alt: "Jayashree Mohanty"}
+  speaker_1: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/image-removebg-preview.webp", alt: "Shashi Tharoor"},
+  speaker_2: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Sudeep-Gupta.webp", alt: "Sudeep Gupta"},
+  speaker_3: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Arsh-Goyal.webp", alt: "Arsh Goyal"},
+  speaker_4: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/image-4-removebg-preview.webp", alt: "Dan Ram"},
+  speaker_5: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/image-1-removebg-preview.webp", alt: "Akshay Gurnani"},
+  speaker_6: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/1631604743405-removebg-preview.webp", alt: "Rakhi Pal"},
+  speaker_7: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/1680971764378-removebg-preview.webp", alt: "Debendra Pradhan"},
+  speaker_8: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/1624933272912-removebg-preview.webp", alt: "Anand Panda"},
+  speaker_9: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/1618725077549-removebg-preview.webp", alt: "Sandeep Jain"},
+  speaker_10: {link: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Jayashree-Mohanty.webp", alt: "Jayashree Mohanty"}
 }
 
 //E-Summit Login, Register and Reset Password Pages
