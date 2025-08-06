@@ -1,11 +1,11 @@
-import ContactUs from "@/components/contact/Contact"
+import AboutUs from "@/components/aboutus/AboutUs"
 
 
 function App() {
   return (
     <>
       <div className="bg-[#020b13]">
-        <ContactUs />
+        <AboutUs />
       </div>
     </>
   )
