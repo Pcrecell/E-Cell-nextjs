@@ -1,4 +1,4 @@
-import "./globals.css";
+import "../globals.css";
 import NavbarD from "@/components/ui/navbar/NavbarD";
 import Footer from "@/components/ui/Footer/Footer";
 import PageTransition from "@/components/shared/PageTransition";

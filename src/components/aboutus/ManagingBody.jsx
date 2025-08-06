@@ -1,5 +1,5 @@
 import React from 'react';
-import ManagingCarousel from '../../app/aboutus/ManagingCarousel';
+import ManagingCarousel from '../../app/(main)/aboutus/ManagingCarousel';
 import KiteBackground from './KiteBackground';
 
 const ManagingBody = () => {
