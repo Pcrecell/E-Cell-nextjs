@@ -1,4 +1,4 @@
-import "../globals.css";
+// src/app/(main)/layout.jsx
 import NavbarD from "@/components/ui/navbar/NavbarD";
 import Footer from "@/components/ui/Footer/Footer";
 import PageTransition from "@/components/shared/PageTransition";
@@ -9,16 +9,14 @@ export const metadata = {
   keywords: 'KIIT, E-Cell, Entrepreneurship, Innovation, Startup, Business',
 }
 
-export default function RootLayout({ children }) {
+export default function MainLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="bg-black text-white overflow-x-hidden">
-        <NavbarD />
-        <PageTransition>
-          {children}
-        </PageTransition>
-        <Footer />
-      </body>
-    </html>
+    <div className="bg-black text-white overflow-x-hidden">
+      <NavbarD />
+      <PageTransition>
+        {children}
+      </PageTransition>
+      <Footer />
+    </div>
   )
 }
