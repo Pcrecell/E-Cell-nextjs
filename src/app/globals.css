@@ -217,8 +217,25 @@ body {
 .text-rotate-space {
   white-space: pre;
 }
-=======
 
+
+.text-rotate-word {
+  display: inline-flex;
+}
+
+.text-rotate-lines {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.text-rotate-element {
+  display: inline-block;
+}
+
+.text-rotate-space {
+  white-space: pre;
+}
 
 
 .custom-popup .leaflet-popup-content-wrapper {
