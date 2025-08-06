@@ -88,7 +88,7 @@ const HeroSection = () => {
         }}
       />
       <div className="relative w-full h-full overflow-hidden">
-        <div className="absolute md:top-[10%] top-[5%] md:bottom-0 bottom-auto md:left-auto left-1/2 md:transform-none transform -translate-x-1/2 md:w-full w-auto md:right-[-10%] right-auto z-10 flex justify-center md:justify-start items-center md:pl-8">
+        <div className="absolute md:top-[10%] top-10 md:bottom-0 bottom-auto lg:left-auto md:left-[20%] left-[35%] md:transform-none transform -translate-x-1/2 md:w-full w-auto scale-90 md:right-[-55%] right-auto z-10 flex justify-center md:justify-start items-center md:pl-8">
           <video
             src={heroSectionVid}
             autoPlay
