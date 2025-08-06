@@ -1,5 +1,12 @@
 // Layout components - Navbar, Footer, ScrollToTop
 
-export { default as Navbar } from './Navbar';
-export { default as Footer } from './Footer';
-export { default as ScrollToTop } from './ScrollToTop';
+// import { NavbarD as Navbar } from '../navbar/NavbarD';
+// import Footer from '../Footer/Footer';
+// import { Children } from 'react';
+
+
+// export default function Layout() {
+//     <Navbar/>
+//     {Children}
+//     <
+// }

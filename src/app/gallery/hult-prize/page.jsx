@@ -1,4 +1,4 @@
-export default function Contacts() {
+export default function Gallery_HultPrize() {
   return (
     <div>
       <h1>Contact Us</h1>

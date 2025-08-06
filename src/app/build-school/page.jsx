@@ -1,8 +1,8 @@
 export default function BuildSchool() {
   return (
     <div>
-      <h1>Build School</h1>
-      <p>Coming Soon...</p>
+      <h1>Contact Us</h1>
+      <p>Get in touch with E-Cell KIIT</p>
     </div>
   );
 }
