@@ -1,8 +1,9 @@
-export default function Gallery() {
+import Gallery from "@/components/gallery/Gallery"
+
+export default function Gallery_Page() {
   return (
     <div>
-      <h1>Contact Us</h1>
-      <p>Get in touch with E-Cell KIIT</p>
+        <Gallery/>
     </div>
   );
 }

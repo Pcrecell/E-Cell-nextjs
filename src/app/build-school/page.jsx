@@ -1,8 +1,9 @@
-export default function BuildSchool() {
+import { BuildSchool } from "@/components/coming-soon/BuildSchool";
+
+export default function BuildSchool_Page() {
   return (
     <div>
-      <h1>Contact Us</h1>
-      <p>Get in touch with E-Cell KIIT</p>
+      <BuildSchool/>
     </div>
   );
 }

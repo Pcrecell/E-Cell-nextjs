@@ -21,7 +21,7 @@ export default function NavbarD() {
     { name: "Home", link: "/" },
     {name: "Events", link: "/events"},
      { name: "About", link: "/aboutus" },
-    { name: "Gallery", link: "/Gallery" }
+    { name: "Gallery", link: "/gallery" }
   ]
 
   const navRight = [
