@@ -46,7 +46,7 @@ const EventsCalendar = ({ selectedDate, onDateSelect }) => {
     return (
         <div
             style={{
-                backgroundImage: `url(${Background})`,
+                backgroundImage: 'url("https://ik.imagekit.io/fhervghik/E-Cell%20Website/EventsCalendarBackground.png")',
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',

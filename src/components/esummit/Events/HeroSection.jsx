@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { esummit_events_page } from '../../../../public/images/image-links';
+import { Anton } from "next/font/google"
 
 const HeroSection = () => {
 
@@ -23,7 +24,7 @@ const HeroSection = () => {
             <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#181C0D] to-transparent"></div>
         </motion.div>
 
-        <div className="w-full bg-[#181C0D] py-8 -mt-4 flex justify-center">
+        <div className="w-full bg-[#181C0D] py-12 -mt-24 flex justify-center">
             <motion.div className="flex">
                 {"EVENTS".split('').map((letter, index) => {
                     const isFirstOrLast = index === 0 || index === "EVENTS".length - 1;
@@ -31,12 +32,12 @@ const HeroSection = () => {
                     return (
                         <motion.span
                             key={index}
-                            className={`text-[72px] sm:text-[96px] font-bold text-center font-cinzel text-white px-1 ${isFirstOrLast ? 'cursor-pointer' : 'cursor-default'}`}
+                            className={`text-[72px] sm:text-[160px] font-bold text-center font-[Anton] text-white px-1 ${isFirstOrLast ? 'cursor-pointer' : 'cursor-default'}`}
                             initial={{
                                 opacity: 0,
                                 y: 60,
                                 scale: 0.9,
-                                rotate: -3,
+                                rotate: 0,
                                 textShadow: "0 0 0 rgba(16, 189, 27, 0)" // Initial glow state
                             }}
                             animate={{

@@ -18,6 +18,7 @@ import AIF_Frame_Right from '../../../../public/images/esummit/events/AIF_Frame_
 import Image_Background_Desktop from '../../../../public/images/esummit/events/Events_Image_Background_Desktop.png'
 import Image_Background_Mobile from '../../../../public/images/esummit/events/Events_Image_Background_Mobile.png'
 // import AIF_Frame_Left from '../../assets/Images/png/AIF_Frame_Left.png'
+import Image from 'next/image';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -43,28 +44,28 @@ const EventsPage = () => {
                 time: "2:00PM - 8:00PM", 
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Pandora_Frame_Right,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Pandora_Frame_Right.png?updatedAt=1754584352905",
             },
             {
                 title: "CASEX",
                 time: "8:00AM - 6:00PM",
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Oracle_Frame_Left,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Oracle_Frame_Left.png?updatedAt=1754584352990",
             },
             {
                 title: "PANDORA'S PARADOX",
                 time: "2:00PM - 8:00PM", 
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Pandora_Frame_Right,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Pandora_Frame_Right.png?updatedAt=1754584352905",
             },
             {
                 title: "CASEX",
                 time: "8:00AM - 6:00PM",
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Oracle_Frame_Left,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Oracle_Frame_Left.png?updatedAt=1754584352990",
             },
         ],
         16: [
@@ -73,28 +74,28 @@ const EventsPage = () => {
                 time: "9:00AM - 5:00PM",
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: AIF_Frame_Right,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/AIF_Frame_Right.png?updatedAt=1754584352943",
             },
             {
                 title: "PANDORA'S PARADOX",
                 time: "9:00AM - 5:00PM",
                 venue: "CAMPUS-25", 
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Pandora_Frame_Left,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Pandora_Frame_Left.png?updatedAt=1754584353078",
             },
             {
                 title: "ALICE IN FOUNDERLAND",
                 time: "9:00AM - 5:00PM",
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: AIF_Frame_Right,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/AIF_Frame_Right.png?updatedAt=1754584352943",
             },
             {
                 title: "PANDORA'S PARADOX",
                 time: "9:00AM - 5:00PM",
                 venue: "CAMPUS-25", 
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Pandora_Frame_Left,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Pandora_Frame_Left.png?updatedAt=1754584353078",
             },
         ],
         17: [
@@ -103,28 +104,28 @@ const EventsPage = () => {
                 time: "10:00AM - 4:00PM",
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Pandora_Frame_Right,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Pandora_Frame_Right.png?updatedAt=1754584352905",
             },
             {
                 title: "ORACLE",
                 time: "5:00PM - 9:00PM",
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Oracle_Frame_Left,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Oracle_Frame_Left.png?updatedAt=1754584352990",
             },
             {
                 title: "PANDORA'S PARADOX",
                 time: "10:00AM - 4:00PM",
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Pandora_Frame_Right,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Pandora_Frame_Right.png?updatedAt=1754584352905",
             },
             {
                 title: "ORACLE",
                 time: "5:00PM - 9:00PM",
                 venue: "CAMPUS-25",
                 description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem.",
-                image: Oracle_Frame_Left,
+                image: "https://ik.imagekit.io/fhervghik/E-Cell%20Website/Oracle_Frame_Left.png?updatedAt=1754584352990",
             }
         ]
     };
@@ -287,7 +288,7 @@ const EventsPage = () => {
                 ref={desktopLayoutRef}
                 className="lg:h-[120vh] lg:flex hidden relative"
                 style={{
-                    backgroundImage: `linear-gradient(to bottom, rgba(24, 28, 13, 1) 0%, rgba(24, 28, 13, 0.3) 70%, rgba(0, 0, 0, 1) 100%), url(${Image_Background_Desktop})`,
+                    backgroundImage: `linear-gradient(to bottom, rgba(24, 28, 13, 1) 0%, rgba(24, 28, 13, 0.3) 70%, rgba(0, 0, 0, 1) 100%), url("https://ik.imagekit.io/fhervghik/E-Cell%20Website/Events_Image_Background_Desktop.png?updatedAt=1754584353201")`,
                     backgroundSize: "100%",       
                 }}
             >
@@ -308,7 +309,7 @@ const EventsPage = () => {
                                 ref={el => cardRefs.current[index] = el}
                                 className="absolute w-full z-10"
                                 style={{ 
-                                    top: '50%',
+                                    top: '20%',
                                     left: '50%',
                                     transform: 'translate(-50%, -50%)'
                                 }}
@@ -341,13 +342,11 @@ const EventsPage = () => {
                 </div>
             </div>
 
-            {/* Footer for scroll logic anchor */}
-            <div ref={footerRef} className="w-full h-[100px]" />
 
             {/* Mobile Layout */}
             <div className="lg:hidden"
                 style={{
-                    backgroundImage: `linear-gradient(to bottom, rgba(24, 28, 13, 1) 0%, rgba(24, 28, 13, 0.3) 70%, rgba(0, 0, 0, 1) 100%), url(${Image_Background_Mobile})`,
+                    backgroundImage: `linear-gradient(to bottom, rgba(24, 28, 13, 1) 0%, rgba(24, 28, 13, 0.3) 70%, rgba(0, 0, 0, 1) 100%), url("https://ik.imagekit.io/fhervghik/E-Cell%20Website/Events_Image_Background_Mobile.png?updatedAt=1754584353312")`,
                     backgroundSize: "100%",
                     backgroundPositionY: "",
                     backgroundPositionX: "",         

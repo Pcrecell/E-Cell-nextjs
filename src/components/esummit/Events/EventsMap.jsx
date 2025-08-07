@@ -150,7 +150,7 @@ const EventsMap = () => {
             <div className="relative w-full h-[500px] mx-auto">
                 {/* Frame overlays everything, perfectly centered */}
                 <img
-                    src={Frame}
+                    src={"https://ik.imagekit.io/fhervghik/E-Cell%20Website/EventsMapFrame.png?updatedAt=1754584709196"}
                     alt="Map Frame"
                     className="absolute left-1/2 top-1/2 w-[80%] h-[80%] object-contain pointer-events-none z-10 select-none"
                     style={{ transform: `translate(-50%, ${isSmallScreen ? '-80%' : '-60%'}) rotate(90deg)` }}
