@@ -1,9 +1,15 @@
-import {ESummit} from "@/components/coming-soon/ESummit";
+import Hero from "@/components/esummit/Hero-section/Hero";
+import {Event} from "@/components/esummit/Homepage-events/index"
+import PastSpeakers from "@/components/esummit/past-speakers/PastSpeakers";
+import PastSponser from "@/components/esummit/past-sponsors/PastSponserWithCarousel";
 
-export default function ESummit_Page() {
+export default function HomePage() {
   return (
     <main>
-      <ESummit />
+      <Hero />
+      <Event />
+      <PastSpeakers/>
+      <PastSponser/>
     </main>
   )
 }
