@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Skeleton } from '@mui/material';
+import Image from 'next/image';
 
 const advisoryMembers = [
   {
@@ -57,9 +58,11 @@ const AdvisoryCard = ({ member, size = "large" }) => {
                 animation="pulse"
               />
             )}
-            <img
+            <Image
               src={member.image}
               alt={member.name}
+              width={400}
+              height = {400}
               className={`w-full h-full object-cover rounded-t transition-opacity duration-300 ${loadedImages[member.image] ? 'opacity-100' : 'opacity-0'}`}
               style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
               onLoad={() => setLoadedImages(prev => ({ ...prev, [member.image]: true }))}
