@@ -5,14 +5,14 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 
-import Gray from "../../public/images/not-found/Gray Ball.svg";
-import Blue from "../../public/images/not-found/Blue Ball.svg";
-import Purple from "../../public/images/not-found/Purple Ball.svg";
-import Hole from "../../public/images/not-found/Hole.svg";
+import Gray from "../../../public/images/not-found/Gray Ball.svg";
+import Blue from "../../../public/images/not-found/Blue Ball.svg";
+import Purple from "../../../public/images/not-found/Purple Ball.svg";
+import Hole from "../../../public/images/not-found/Hole.svg";
 
 const ballImages = [Gray, Blue, Purple];
 
-export default function NotFound() {
+export default function ESummitNotFound() {
   const ballRefs = useRef([]);
   const containerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -20,7 +20,7 @@ export default function NotFound() {
   // Detect screen size
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // Tailwind md = 768px
+      setIsMobile(window.innerWidth < 768);
     };
     checkMobile();
     window.addEventListener("resize", checkMobile);
@@ -38,7 +38,7 @@ export default function NotFound() {
 
       tl.set(ball, { y: "-100%", scale: 1, opacity: 1, zIndex: 30 })
         .to(ball, {
-          y: isMobile ? "500%" : "290%", // Responsive Y values
+          y: isMobile ? "500%" : "290%",
           duration: 2.5,
           ease: "power2.inOut",
           zIndex: 30,
@@ -53,15 +53,10 @@ export default function NotFound() {
       ref={containerRef}
       className="relative min-h-screen w-full bg-black overflow-hidden"
     >
-      {/* Navbar */}
-      {/* <div className="absolute top-0 left-0 w-full z-20">
-        <NavbarD />
-      </div> */}
-
       {/* Clip Paths */}
       <svg width="0" height="0">
         <defs>
-          <clipPath id="holeClipPath" clipPathUnits="userSpaceOnUse">
+          <clipPath id="holeClipPathESummit" clipPathUnits="userSpaceOnUse">
             <path d="M 347 599.524 H 346.988 C 345.925 621.922 269.107 640 174.5 640 C 79.8929 640 3.0747 621.922 2.0117 599.524 H 2 V -1 H 347 V 599.524 Z" />
           </clipPath>
         </defs>
@@ -69,7 +64,7 @@ export default function NotFound() {
 
       <svg width="0" height="0">
         <defs>
-          <clipPath id="holeClipPathMobile" clipPathUnits="userSpaceOnUse">
+          <clipPath id="holeClipPathMobileESummit" clipPathUnits="userSpaceOnUse">
             <path d="M 229.02 599.524 H 229.0121 C 228.3105 621.922 177.6106 640 115.17 640 C 52.7293 640 2.0293 621.922 1.3277 599.524 H 1.32 V -1 H 229.02 V 599 Z" />
           </clipPath>
         </defs>
@@ -95,8 +90,7 @@ export default function NotFound() {
               <div
                 className="absolute inset-0 h-[40rem]"
                 style={{
-                  clipPath: `url(#${isMobile ? "holeClipPathMobile" : "holeClipPath"})`,
-                  // backgroundColor: "rgba(0, 255, 255, 0.2)", // debug background
+                  clipPath: `url(#${isMobile ? "holeClipPathMobileESummit" : "holeClipPathESummit"})`,
                   transform: isMobile
                     ? "translateY(-5.5rem) translateX(5rem)"
                     : "translateY(0rem) translateX(1rem)",
@@ -111,7 +105,7 @@ export default function NotFound() {
                     }}
                     src={ball}
                     alt="Ball"
-                  className="w-32 h-32 md:w-56 md:h-56 absolute top-0 left-[3.25rem] md:left-16 mx-auto"
+                    className="w-32 h-32 md:w-56 md:h-56 absolute top-0 left-[3.25rem] md:left-16 mx-auto"
                     style={{
                       opacity: 0,
                       zIndex: 30,
@@ -135,22 +129,24 @@ export default function NotFound() {
           </span>
         </div>
 
-        {/* Message */}
+        {/* Message - E-Summit themed */}
         <div className="z-50 w-full h-auto flex flex-col">
           <h2 className="text-white text-2xl md:text-3xl font-bold mb-2 text-center mt-4 drop-shadow-[0_2px_16px_rgba(0,0,0,1)]">
-            Ooops!!!...Page not Found
+            E-Summit Page Not Found
           </h2>
           <p className="text-white/90 mx-auto text-base md:text-lg text-center max-w-[19.65rem] md:max-w-xl mb-5 md:mb-8 drop-shadow-[0_2px_16px_rgba(0,0,0,1)]">
-            The page you're looking for can't be found.
+            The E-Summit page you're looking for can't be found.
             <br />
             Double-check the URL and try again. Or click the button below.
           </p>
-          <a
-            href="/"
-            className="bg-white mx-auto text-black font-semibold px-5 py-2 md:px-8 md:py-3 rounded-full shadow transition hover:bg-[#222] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#222] text-sm md:text-base"
-          >
-            Back To Home
-          </a>
+          <div className="flex gap-0 justify-center">
+            <a
+              href="/esummit"
+              className="bg-white mx-auto text-black font-semibold px-5 py-2 md:px-8 md:py-3 rounded-full shadow transition hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 text-sm md:text-base"
+            >
+              Back To E-Summit
+            </a>
+          </div>
         </div>
       </div>
     </div>
