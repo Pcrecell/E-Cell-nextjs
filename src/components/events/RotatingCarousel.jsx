@@ -1,15 +1,39 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Skeleton } from '@mui/material';
+import Image from "next/image";
 
 const RotatingCarousel = ({ events, activeIndex }) => {
   const [loadedImages, setLoadedImages] = useState({});
+  const [windowWidth, setWindowWidth] = useState(null);
 
   const handleImageLoad = (index) => {
     setLoadedImages(prev => ({ ...prev, [index]: true }));
   };
+
+  // Handle window width on client side only
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Set initial width
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Don't render anything until we have window width (avoid hydration mismatch)
+  if (windowWidth === null) {
+    return null;
+  }
+
   return (
     <div className="absolute bottom-0 right-0">
       <div className="hidden sm:block">
@@ -35,16 +59,16 @@ const RotatingCarousel = ({ events, activeIndex }) => {
             {/* Big circle with white outline and luminosity blend mode */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[56.7vw] h-[56.7vw] lg:w-[59.535vw] lg:h-[59.535vw] max-w-[716px] max-h-[716px] lg:max-w-[936px] lg:max-h-[936px] min-w-[495px] min-h-[495px] lg:min-w-[639px] lg:min-h-[639px] rounded-full outline outline-white"
                  style={{ 
-                   outlineWidth: window.innerWidth >= 1024 ? `clamp(10px, 1vw, 16px)` : `clamp(7px, 0.8vw, 12px)`,
+                   outlineWidth: windowWidth >= 1024 ? `clamp(10px, 1vw, 16px)` : `clamp(7px, 0.8vw, 12px)`,
                    backgroundColor: 'transparent'
                  }} />
             
             {/* Red circles with luminosity blend mode */}
             {events.map((event, index) => {
-              const isLargeScreen = window.innerWidth >= 1024;
+              const isLargeScreen = windowWidth >= 1024;
               const radiusValue = isLargeScreen 
-                ? Math.min(window.innerWidth * 0.297675, 468)
-                : Math.min(window.innerWidth * 0.28389375, 358);
+                ? Math.min(windowWidth * 0.297675, 468)
+                : Math.min(windowWidth * 0.28389375, 358);
               // For 5 circles, use 360/5 = 72 degrees per step, and start at -126 for symmetry
               const angle = -135 + index * 72;
               const x = radiusValue * Math.cos(angle * (Math.PI / 180));
@@ -53,8 +77,8 @@ const RotatingCarousel = ({ events, activeIndex }) => {
                 ? `clamp(280px, 27vw, 425px)`
                 : `clamp(200px, 25.75vw, 325px)`;
               const circleSizeValue = isLargeScreen
-                ? Math.max(280, Math.min(window.innerWidth * 0.27, 425))
-                : Math.max(200, Math.min(window.innerWidth * 0.2575, 325));
+                ? Math.max(280, Math.min(windowWidth * 0.27, 425))
+                : Math.max(200, Math.min(windowWidth * 0.2575, 325));
               
               return (
                 <div
@@ -89,10 +113,10 @@ const RotatingCarousel = ({ events, activeIndex }) => {
             }}
           >
             {events.map((event, index) => {
-              const isLargeScreen = window.innerWidth >= 1024;
+              const isLargeScreen = windowWidth >= 1024;
               const radiusValue = isLargeScreen 
-                ? Math.min(window.innerWidth * 0.297675, 468)
-                : Math.min(window.innerWidth * 0.28389375, 358);
+                ? Math.min(windowWidth * 0.297675, 468)
+                : Math.min(windowWidth * 0.28389375, 358);
               // For 5 circles, use 360/5 = 72 degrees per step, and start at -126 for symmetry
               const angle = -135 + index * 72;
               const x = radiusValue * Math.cos(angle * (Math.PI / 180));
@@ -101,8 +125,8 @@ const RotatingCarousel = ({ events, activeIndex }) => {
                 ? `clamp(280px, 27vw, 425px)`
                 : `clamp(200px, 25.75vw, 325px)`;
               const circleSizeValue = isLargeScreen
-                ? Math.max(280, Math.min(window.innerWidth * 0.27, 425))
-                : Math.max(200, Math.min(window.innerWidth * 0.2575, 325));
+                ? Math.max(280, Math.min(windowWidth * 0.27, 425))
+                : Math.max(200, Math.min(windowWidth * 0.2575, 325));
               const borderWidth = isLargeScreen ? 40 : 26;
               
               return (
@@ -147,9 +171,11 @@ const RotatingCarousel = ({ events, activeIndex }) => {
                             animation="pulse"
                           />
                         )}
-                        <img
+                        <Image
                           src={event.mainLogo}
                           alt={`${event.title} logo`}
+                          width={300}
+                          height={300}
                           className={`${
                             event.logoClassName || "w-3/5 h-3/5"
                           } object-contain transition-opacity duration-300 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}

@@ -4,6 +4,7 @@ import { Skeleton } from '@mui/material';
 import RotatingCarousel from "./RotatingCarousel";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
+import Image from "next/image";
 
 export const Transcity = localFont({
   src: "../../../public/fonts/Transcity.otf",
@@ -55,7 +56,7 @@ const events = [
   {
     id: "i-camp",
     title: "I-Camp",
-    description: "I-Camp connects eager students with top startups and companies offering internships. It’s your gateway to real-world experience curated by KIIT E-Cell for driven, opportunity-hungry minds!",
+    description: "I-Camp connects eager students with top startups and companies offering internships. It's your gateway to real-world experience curated by KIIT E-Cell for driven, opportunity-hungry minds!",
     mainLogo: "https://i.ibb.co/dJpJD2Qt/icamp-logo.png",
     link: "/i-camp",
     logoClassName: "w-[75%] h-[75%]",
@@ -95,6 +96,7 @@ const ResponsiveArrow = ({ activeEvent, activeIndex, className, topOffset, calcu
 const EventCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState({});
+  const [windowHeight, setWindowHeight] = useState(null);
   const activeEvent = events[activeIndex];
   const timeoutRef = useRef(null);
   const lastSelectionWasManual = useRef(false);
@@ -108,6 +110,22 @@ const EventCarousel = () => {
       clearTimeout(timeoutRef.current);
     }
   };
+
+  // Handle window height on client side only
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+
+    // Set initial height
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     resetTimeout();
@@ -214,9 +232,11 @@ const EventCarousel = () => {
                       animation="pulse"
                     />
                   )}
-                  <img
+                  <Image
                     src={event.navIcon || event.mainLogo}
                     alt={`${event.title} logo`}
+                    width={400}
+                    height={400}
                     className={`${event.logoClassName} object-contain transition-opacity duration-300 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
                     onLoad={() => handleImageLoad(index)}
                   />
@@ -254,9 +274,11 @@ const EventCarousel = () => {
                       animation="pulse"
                     />
                   )}
-                  <img
+                  <Image
                     src={events[index + 3].navIcon || events[index + 3].mainLogo}
                     alt={`${events[index + 3].title} logo`}
+                    width={400}
+                    height={400}
                     className={`${events[index + 3].logoClassName} object-contain transition-opacity duration-300 ${loadedImages[index + 3] ? 'opacity-100' : 'opacity-0'}`}
                     onLoad={() => handleImageLoad(index + 3)}
                   />
@@ -294,9 +316,11 @@ const EventCarousel = () => {
                         animation="pulse"
                       />
                     )}
-                    <img
+                    <Image
                       src={event.navIcon || event.mainLogo}
                       alt={`${event.title} logo`}
+                      width={400}
+                      height={400}
                       className={`${event.logoClassName} object-contain transition-opacity duration-300 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
                       onLoad={() => handleImageLoad(index)}
                     />
@@ -333,12 +357,12 @@ const EventCarousel = () => {
 
       {/* Rotating Carousel */}
       <RotatingCarousel events={events} activeIndex={activeIndex} />
+      
       {/* More Info Button */}
       <div
-        className="absolute w-full flex flex-col items-center z-20 left-0 right-0 bottom-[10vh] mt-0"
-        style={{
-          ...(window.innerHeight <= 600 ? { bottom: '5vh' } : {})
-        }}
+        className={`absolute w-full flex flex-col items-center z-20 left-0 right-0 mt-0 ${
+          windowHeight && windowHeight <= 600 ? 'bottom-[5vh]' : 'bottom-[10vh]'
+        }`}
       >
         <a
           href={activeEvent.link}

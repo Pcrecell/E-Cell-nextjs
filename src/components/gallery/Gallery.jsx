@@ -95,6 +95,20 @@ const images = [
 
 const Glimpse = () => {
   const [angleOffset, setAngleOffset] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+  
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+  
+  return () => {
+    window.removeEventListener('resize', checkMobile);
+  };
+}, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -190,12 +204,11 @@ const Glimpse = () => {
               <div className="relative w-[70vw] sm:w-[60vw] md:w-[28rem] h-[52vw] sm:h-[45vw] md:h-[21rem]">
                 
                 {images.map((img, i) => {
-                    const src = img.image;
+                  const src = img.image;
                     // const content = img.content;
                   const angle = ((360 / total) * (i + angleOffset)) % 360;
                   const radians = (angle * Math.PI) / 180;
 
-                  const isMobile = window.innerWidth < 768;
                   const radiusX = isMobile ? 22 : 20;
                   const radiusY = isMobile ? 17 : 14;
 

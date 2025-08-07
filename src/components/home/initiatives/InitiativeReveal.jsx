@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react"
 import { motion, useAnimation, useInView, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-// import { useNavigate } from "react-router-dom"
-// import { useLocation } from "react-router-dom";
+import { useRouter } from "next/navigation"
+
 
 // Initiative card data
 const initiatives = [
@@ -41,7 +41,7 @@ const initiatives = [
     title: "Workshops for Entrepreneurial Growth",
     description: "Skill Sprint offers dynamic upskilling workshops led by experienced founders and mentors.",
     color:"white",
-    url: "/build-school"
+    url: "/skill-sprint"
   },
 ]
 
@@ -66,6 +66,9 @@ const techNodesData = [
 
 // Static Tech Background with deterministic positioning
 const StaticTechBackground = () => {
+
+ 
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Horizontal lines */}
@@ -137,13 +140,14 @@ const StaticTechBackground = () => {
 }
 
 // Initiative Card component with improved animations
-const InitiativeCard = ({ initiative, isActive, onClick }) => {
+const InitiativeCard = ({ initiative, isActive, onCardClick }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
 
+
   const handleClick = () => {
     setIsClicked(true)
-    onClick()
+    onCardClick(initiative)
     setTimeout(() => setIsClicked(false), 800)
   }
 
@@ -340,19 +344,7 @@ export default function InitiativesSection() {
   const isInView = useInView(ref, { once: false, amount: 0.3 })
   const [activeIndex, setActiveIndex] = useState(0)
   const [autoPlay, setAutoPlay] = useState(true)
-
-  // const navigate = useNavigate()
-
-  // const location = useLocation();
-
-  // useEffect(() => {
-  //   if(location.hash) {
-  //     const section = document.querySelector(location.hash);
-  //     if (section) {
-  //       section.scrollIntoView({behavior: "smooth"})
-  //     }
-  //   }
-  // }, [])
+  const router = useRouter()
 
   // Start animation when section comes into view
   useEffect(() => {
@@ -382,20 +374,26 @@ export default function InitiativesSection() {
     setActiveIndex((prev) => (prev + 1) % initiatives.length)
   }
 
-  const handleCardClick = (index) => {
-  setAutoPlay(false)
-  setActiveIndex(index)
-  const initiative = initiatives[index]
-  if (initiative?.url) {
-    setTimeout(() => {
-      if (initiative.url.startsWith("/")) {
-        // navigate(initiative.url);
-      } else {
-        window.open(initiative.url, "_blank");
-      }
-    }, 300) // slight delay for animation to finish
+  const handleCardClick = (initiative) => {
+    setAutoPlay(false)
+    
+    if (initiative?.url) {
+      setTimeout(() => {
+        if (initiative.url.startsWith("http")) {
+          // External URL - open in new tab
+          window.open(initiative.url, "_blank")
+        } else {
+          // Internal URL - navigate with Next.js router
+          router.push(initiative.url)
+        }
+      }, 300) // slight delay for animation to finish
+    }
   }
-}
+
+  const handleCarouselClick = (index) => {
+    setAutoPlay(false)
+    setActiveIndex(index)
+  }
 
   // Improved title animation variants
   const titleVariants = {
@@ -528,7 +526,7 @@ export default function InitiativesSection() {
                         <InitiativeCard
                           initiative={initiative}
                           isActive={index === activeIndex}
-                          onClick={() => handleCardClick(index)}
+                          onCardClick={handleCardClick}
                         />
                       </motion.div>
                     ))}
@@ -566,10 +564,7 @@ export default function InitiativesSection() {
                 className="relative"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={() => {
-                  setAutoPlay(false)
-                  setActiveIndex(index)
-                }}
+                onClick={() => handleCarouselClick(index)}
               >
                 <div className={`w-8 h-1 rounded-sm ${index === activeIndex ? "bg-[#FF69B4]" : "bg-gray-700"}`} />
                 {index === activeIndex && (

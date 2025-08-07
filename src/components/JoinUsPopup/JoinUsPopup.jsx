@@ -9,10 +9,9 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { collection, addDoc, doc, setDoc, getDoc } from "firebase/firestore";
 import { joinDb } from "@/lib/utils/firebase/firebase";
 import { Skeleton } from "@mui/material";
-
+import Image from "next/image";
 
 const getClientIdentifier = async () => {
- 
   try {
     const response = await fetch("https://api.ipify.org?format=json");
     const data = await response.json();
@@ -31,28 +30,19 @@ const JoinUsPopup = ({ isOpen, onClose }) => {
   const [rateLimitError, setRateLimitError] = useState("");
   const containerControls = useAnimation();
   const [showFirstLogo, setShowFirstLogo] = useState(true);
-  const [imgLoaded, setImgLoaded] = useState(false);
-
 
   useEffect(() => {
-  const interval = setInterval(() => {
-    setImgLoaded(false); // 1. Show skeleton
-
-    // 2. Wait a moment to let Skeleton render, THEN switch image
-    setTimeout(() => {
+    const interval = setInterval(() => {
       setShowFirstLogo((prev) => !prev);
-    }, 100); // delay 100ms before switching logo
-  }, 3000);
+    }, 3000);
 
-  return () => clearInterval(interval);
-}, []);
-
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => (document.body.style.overflow = "auto");
   }, [isOpen]);
-
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -144,118 +134,110 @@ const JoinUsPopup = ({ isOpen, onClose }) => {
         className="relative bg-[#0d0d0d] p-5 rounded-3xl flex flex-col md:flex-row w-full max-w-4xl overflow-hidden border border-white/10 ring-1 ring-blue-500/30 ring-offset-2 ring-offset-black shadow-[0_0_20px_#06b6d4] opacity-90"
       >
         <button
-  onClick={handleCloseAnimation}
-  className="absolute top-4 right-4 z-50 w-10 h-10 backdrop-blur-md bg-white/5 text-white border border-white/20 hover:border-white/40 rounded-full flex items-center justify-center hover:scale-105 transition-all duration-200 shadow-[0_0_8px_#0ff3] hover:shadow-[0_0_12px_#0ff3]"
->
-  <X className="w-5 h-5" />
-</button>
-
+          onClick={handleCloseAnimation}
+          className="absolute top-4 right-4 z-50 w-10 h-10 backdrop-blur-md bg-white/5 text-white border border-white/20 hover:border-white/40 rounded-full flex items-center justify-center hover:scale-105 transition-all duration-200 shadow-[0_0_8px_#0ff3] hover:shadow-[0_0_12px_#0ff3]"
+        >
+          <X className="w-5 h-5" />
+        </button>
 
         {/* Left content */}
-       <div className="p-6 md:p-10 w-full md:w-1/2 text-white flex flex-col justify-center font-poppins">
-  <h2 className="text-3xl md:text-3xl font-semibold mb-6 leading-tight text-white tracking-tight">
-    This Is Your Sign To Join <span className="text-cyan-400">KIIT E-CELL</span>
-  </h2>
+        <div className="p-6 md:p-10 w-full md:w-1/2 text-white flex flex-col justify-center font-poppins">
+          <h2 className="text-3xl md:text-3xl font-semibold mb-6 leading-tight text-white tracking-tight">
+            This Is Your Sign To Join <span className="text-cyan-400">KIIT E-CELL</span>
+          </h2>
 
-        <div className="w-full md:hidden bg-[#0d0d0d] p-2 flex items-end justify-center">
-  {!imgLoaded && (
-   <Skeleton
-      variant="rectangular"
-      className="absolute top-0 left-0 w-full h-full rounded-xl"
-      animation="wave"
-    />
-)}
+          <div className="w-full md:hidden bg-[#0d0d0d] p-2 flex items-end justify-center relative h-[300px] sm:h-[380px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={showFirstLogo ? "logo1" : "logo2"}
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <Image
+                  src={showFirstLogo ? illustration1 : illustration2}
+                  alt="E-Cell Logo"
+                  width={440}
+                  height={440}
+                  className="w-[300px] sm:w-[380px] h-auto object-contain"
+                  priority
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-<AnimatePresence mode="wait">
-  <motion.img
-    key={showFirstLogo ? "logo1" : "logo2"}
-    src={showFirstLogo ? illustration1 : illustration2}
-    alt="E-Cell Logo"
-    onLoad={() => setImgLoaded(true)}
-    initial={{ opacity: 0, scale: 0.95, y: 10 }}
-    animate={{ opacity: 1, scale: 1, y: 0 }}
-    exit={{ opacity: 0, scale: 0.95, y: -10 }}
-    transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
-    className="w-[300px] sm:w-[380px] md:w-[440px]"
-  />
-</AnimatePresence>
+          <h3 className="text-xl hidden md:text-2xl font-semibold text-white mb-4">
+            What's in it for you:
+          </h3>
 
-</div>
-
-
-           <h3 className="text-xl hidden md:text-2xl font-semibold text-white mb-4">
-    What’s in it for you:
-  </h3>
-
- <ul className="hidden md:block text-base text-gray-300 list-disc list-inside mb-6">
-  <li>Build innovative projects with real impact</li>
-  <li>Take the lead in marketing, tech, design, content, and more</li>
-  <li>Network with founders, creators, and future VCs</li>
-  <li>Drive flagship events like E-Summit, where the campus meets the startup world</li>
-</ul>
+          <ul className="hidden md:block text-base text-gray-300 list-disc list-inside mb-6">
+            <li>Build innovative projects with real impact</li>
+            <li>Take the lead in marketing, tech, design, content, and more</li>
+            <li>Network with founders, creators, and future VCs</li>
+            <li>Drive flagship events like E-Summit, where the campus meets the startup world</li>
+          </ul>
 
           {submitSuccess ? (
+            <div className="text-center py-4">
+              <p className="text-cyan-400 font-medium">Thank you for your interest!</p>
+              <p className="text-sm text-gray-300 mt-1">We'll be in touch soon.</p>
+            </div>
+          ) : (
+            <>
               <div className="text-center py-4">
-                <p className="text-cyan-400 font-medium">Thank you for your interest!</p>
-                <p className="text-sm text-gray-300 mt-1">We'll be in touch soon.</p>
+                <p className="text-cyan-400 font-medium">If you have the spark, we have the platform.</p>
+                <p className="text-sm text-gray-300 mt-1">Drop your email to get started.</p>
               </div>
-            ) : (
-              <>
-                <div className="text-center py-4">
-                  <p className="text-cyan-400 font-medium">If you have the spark, we have the platform.</p>
-                  <p className="text-sm text-gray-300 mt-1">Drop your email to get started.</p>
-                </div>
 
-                {rateLimitError && (
-                  <p className="text-red-400 text-sm text-center mt-2">{rateLimitError}</p>
-                )}
+              {rateLimitError && (
+                <p className="text-red-400 text-sm text-center mt-2">{rateLimitError}</p>
+              )}
 
-                <div className="relative mt-6 w-full">
-                  <input
-                    type="email"
-                    placeholder="Enter your Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pr-32 px-4 py-2 rounded-3xl text-sm bg-[#181818] text-white placeholder-gray-400 border border-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
-                    disabled={isSubmitting}
-                  />
-                  <motion.button
-                    onClick={handleStart}
-                    disabled={isSubmitting}
-                    whileTap={{ scale: 0.95 }}
-                    className="absolute top-1 right-1 bottom-1 px-4 text-sm font-semibold bg-cyan-500 hover:text-black text-white rounded-2xl transition disabled:opacity-50"
-                  >
-                    {isSubmitting ? "Sending..." : "Get Started"}
-                  </motion.button>
-                </div>
-              </>
-            )}
+              <div className="relative mt-6 w-full">
+                <input
+                  type="email"
+                  placeholder="Enter your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pr-32 px-4 py-2 rounded-3xl text-sm bg-[#181818] text-white placeholder-gray-400 border border-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
+                  disabled={isSubmitting}
+                />
+                <motion.button
+                  onClick={handleStart}
+                  disabled={isSubmitting}
+                  whileTap={{ scale: 0.95 }}
+                  className="absolute top-1 right-1 bottom-1 px-4 text-sm font-semibold bg-cyan-500 hover:text-black text-white rounded-2xl transition disabled:opacity-50"
+                >
+                  {isSubmitting ? "Sending..." : "Get Started"}
+                </motion.button>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Right image */}
-        <div className="hidden md:flex w-full md:w-1/2 bg-[#0d0d0d] pt-16 p-2 items-center justify-center">
-          {!imgLoaded && (
-  <Skeleton
-      variant="rectangular"
-      className="absolute top-0 left-0 w-full h-full rounded-xl"
-      animation="wave"
-    />
-)}
-
-<AnimatePresence mode="wait">
-  <motion.img
-    key={showFirstLogo ? "logo1" : "logo2"}
-    src={showFirstLogo ? illustration1 : illustration2}
-    alt="E-Cell Logo"
-    onLoad={() => setImgLoaded(true)}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.4, ease: "easeInOut" }}
-    className="w-[300px] sm:w-[380px] md:w-[440px]"
-  />
-</AnimatePresence>
-
+        <div className="hidden md:flex w-full md:w-1/2 bg-[#0d0d0d] pt-16 p-2 items-center justify-center relative h-[500px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={showFirstLogo ? "logo1" : "logo2"}
+              initial={{ opacity: 0, scale: 1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <Image
+                src={showFirstLogo ? illustration1 : illustration2}
+                alt="E-Cell Logo"
+                width={440}
+                height={440}
+                className="w-[440px] h-auto object-contain"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
         </div>
       </motion.div>
     </div>,

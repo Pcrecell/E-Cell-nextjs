@@ -9,6 +9,7 @@ import {
   Facebook,
   ArrowRight,
 } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -20,14 +21,14 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black text-white z-20">
       <div className="container mx-auto px-4 py-16 max-w-7xl">
         {/* Mobile Layout */}
         <div className="block md:hidden w-full text-sm space-y-6">
           {/* Mobile: Logo + Info */}
           <div className="space-y-6 text-center">
             <div className="flex justify-center">
-              <img src={img} alt="E-Summit Logo" className="h-12" />
+              <Image src={img} alt="E-Summit Logo" className="w-32 h-10 object-contain" />
             </div>
             <h3 className="font-bold uppercase tracking-wider text-sm">
               KIIT E-Cell
@@ -52,7 +53,31 @@ const Footer = () => {
                 Our Initiatives
               </h3>
               <ul className="space-y-2 text-sm text-center">
-                <a href="/esummit"><li className="hover:text-green-300">E-Summit</li></a>
+                <a href="/esummit">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer">
+                    E-summit
+                  </li>
+                </a>
+                <a href="/i-camp">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer">
+                    I-Camp
+                  </li>
+                </a>
+                <a href="/build-school">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer mt-1">
+                    BuildSchool
+                  </li>
+                </a>
+                <a href="/hult-prize">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer mt-1">
+                    Hult Prize
+                  </li>
+                </a>
+                <a href="/maverick/">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer mt-1">
+                    Maverick
+                  </li>
+                </a>
               </ul>
             </div>
           </div>
@@ -83,15 +108,12 @@ const Footer = () => {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-24">
           {/* Column 1: Logo & Socials */}
           <div className="space-y-6">
             <div>
-              <img src={img} alt="E-Summit Logo" className="h-12" />
+              <Image src={img} alt="E-Summit Logo" className="object-contain" />
             </div>
-            <h3 className="font-bold uppercase tracking-wider text-sm">
-              KIIT E-Cell
-            </h3>
             <div>
               <h4 className="font-medium text-white mb-2 text-sm">Connect with us:</h4>
               <div className="flex space-x-3">
@@ -116,9 +138,33 @@ const Footer = () => {
             <h3 className="font-bold mb-4 text-base uppercase tracking-wider">
               OUR INITIATIVES
             </h3>
-            <ul className="space-y-2 text-sm">
-              <li><a href="/esummit" className="hover:text-green-200">E-Summit</a></li>
-            </ul>
+              <ul className="space-y-2 flex flex-col text-sm">
+                <a href="/esummit">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer">
+                    E-summit
+                  </li>
+                </a>
+                <a href="/i-camp">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer">
+                    I-Camp
+                  </li>
+                </a>
+                <a href="/build-school">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer mt-1">
+                    BuildSchool
+                  </li>
+                </a>
+                <a href="/hult-prize">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer mt-1">
+                    Hult Prize
+                  </li>
+                </a>
+                <a href="/maverick/">
+                  <li className="hover:text-green-200 transition-colors duration-150 cursor-pointer mt-1">
+                    Mavericks
+                  </li>
+                </a>
+              </ul>
           </div>
 
           {/* Column 3: Useful Links */}

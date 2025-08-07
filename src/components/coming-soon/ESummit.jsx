@@ -1,9 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+// import { useRouter } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { cn } from "../utils/cn";
+import { cn } from "@/lib/utils/cn";
+import localFont from "next/font/local";
+
+const Transcity = localFont({
+  src: "../../../public/fonts/Transcity.otf",
+  display: "swap",
+  variable: "--font-transcity",
+  fallback: ["serif"]
+});
 
 export function ESummit() {
   const navigate = useRouter();
@@ -118,7 +127,7 @@ export const LampContainer = ({ className, navigate }) => {
           initial={{ opacity: 0, y: 400 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.0, duration: 0.8, ease: "easeInOut" }}
-          className="bg-white py-4 bg-clip-text text-center text-6xl font-medium font-transcity tracking-tight text-transparent md:text-8xl mb-10"
+          className="bg-white py-4 bg-clip-text text-center text-6xl font-medium font-[Transcity] tracking-tight text-transparent md:text-8xl mb-10"
         >
           Coming Soon
         </motion.h1>
@@ -127,7 +136,7 @@ export const LampContainer = ({ className, navigate }) => {
         <div className="flex flex-col items-center mt-20 -translate-y-16">
           {/* Animated Logo */}
           <motion.img
-            src={esummitLogo}
+            src={"https://ik.imagekit.io/fhervghik/E-Cell%20Website/ESummit%20logo%20coming%20soon.png?updatedAt=1754565049755"}
             alt="ESummit Logo"
             className="mx-auto mb-8"
             style={{

@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Skeleton } from '@mui/material';
+import Image from "next/image";
 
 const HorizontalCardScroll = () => {
   const containerRef = useRef(null);
@@ -231,9 +232,11 @@ const HorizontalCardScroll = () => {
                 animation="pulse"
               />
             )}
-            <img 
+            <Image 
               src={card.imageUrl} 
               alt={card.title} 
+              width={800}
+              height={800}
               className={`w-full h-full object-cover transition-opacity duration-300 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
               onLoad={() => handleImageLoad(index)}
             />
@@ -275,9 +278,11 @@ const HorizontalCardScroll = () => {
               animation="pulse"
             />
           )}
-          <img 
+          <Image 
             src={card.imageUrl} 
             alt={card.title} 
+            width={800}
+            height={800}
             className={`w-full h-full object-cover transition-opacity duration-300 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
             onLoad={() => handleImageLoad(index)}
           />
@@ -356,10 +361,12 @@ const HorizontalCardScroll = () => {
                         animation="pulse"
                       />
                     )}
-                    <img 
+                    <Image 
                       src={card.imageUrl} 
                       alt={card.title} 
                       key={card.id}
+                      width={800}
+                      height={800}
                       className={`w-full h-full object-cover transition-opacity duration-300 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
                       onLoad={() => handleImageLoad(index)}
                     />
