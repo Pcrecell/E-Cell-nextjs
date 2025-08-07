@@ -150,22 +150,26 @@ const HeroSection = () => {
             </div>
             <div className="flex flex-row gap-4">
               <div className="mb-6 md:mb-10">
+                <a href = "/aboutus">
                 <button
                   className="px-5 py-2 sm:px-8 sm:py-3 rounded-md text-sm font-bold transition duration-200 inline-block text-center cursor-pointer bg-white border-2 border-white text-black hover:scale-105 mb-6"
                   style={{ boxShadow: '0 4px 24px black' }}
-                  onClick={() => navigate("/aboutus")}
+                  
                 >
                   Explore More
                 </button>
+                </a>
               </div>
               <div className="mb-6 md:mb-10">
+                <a href = "/events">
                 <button
                   className="px-5 py-2 sm:px-8 sm:py-3 rounded-md text-sm font-bold transition duration-200 inline-block text-center cursor-pointer bg-none hover:bg-[#38bdf8] border-2 border-[#38bdf8] text-white hover:scale-105 mb-6"
                   style={{ boxShadow: '0 4px 24px black' }}
-                  onClick={() => navigate("/events")}
+                  
                 >
                   Our Intiatives
                 </button>
+                </a>
               </div>
             </div>
           </div>
