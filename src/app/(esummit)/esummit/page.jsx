@@ -1,4 +1,4 @@
-import Support from "@/components/customer-support/Support";
+// import Support from "@/components/customer-support/Support";
 import Hero from "@/components/esummit/Hero-section/Hero";
 import {Event} from "@/components/esummit/Homepage-events/index"
 import PastSpeakers from "@/components/esummit/past-speakers/PastSpeakers";
@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
-      <Support />
+      {/* <Support /> */}
       <Event />
       <PastSpeakers/>
       <PastSponser/>
