@@ -213,11 +213,13 @@ const Highlights = () => {
                   animation="pulse"
                 />
               )}
-              <img
+              <Image
                 className={`w-full h-full object-cover transition-opacity duration-300 ${
                   loadedImages[`grid-${index}`] ? "opacity-100" : "opacity-0"
                 }`}
                 src={object.image}
+                width={300}
+                height={300}
                 alt={object.alt || `Highlight ${index + 1}`}
                 fetchPriority="low"
                 onLoad={() => handleImageLoad(`grid-${index}`)}

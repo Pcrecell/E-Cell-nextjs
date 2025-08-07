@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/
 import logo from "../../../../public/Images/esummit/navbar/logo.png"
 import cell from "../../../../public/images/esummit/navbar/ecell-logo.png"
 import React, { useRef, useState } from "react"
+import Image from "next/image.js"
 import { Skeleton } from '@mui/material';
 
 export const Navbar = ({ children, className }) => {
@@ -60,7 +61,7 @@ export const NavBody = ({ leftItems = [], rightItems = [], children, className, 
                       sx={{ position: 'absolute', left: 0, top: 0 }}
                     />
                   )}
-                  <img
+                  <Image
                     src={cell}
                     alt="logo"
                     width={50}
@@ -194,15 +195,17 @@ export const NavItems = ({ items = [], className }) => {
 
 export const NavbarLogo = () => {
     return (
-        <button onClick={() => window.location.href("/esummit")} className="flex items-center px-2 py-1">
-            <img src={logo} alt="logo" width={100} height={100} />
-        </button>
+        <a href="/esummit">
+            <button className="flex items-center px-2 py-1">
+                <Image src={logo} alt="logo" width={100} height={100} />
+            </button>
+        </a>
     )
 }
 
 export const NavbarButton = ({
     href,
-    as: Tag = "a",
+    as: Tag = "button",
     children,
     className,
     variant = "primary",

@@ -245,9 +245,11 @@ const onDragMove = (e) => {
                   </p>
                 </div>
                 <div className="flex items-center justify-center rounded-lg shadow-lg p-1 sm:p-2 w-[50%] h-full">
-                  <img
+                  <Image
                     src={speaker.image}
                     alt={speaker.alt || speaker.name}
+                    width={1000}
+                    height={1000}
                     // loading="lazy"
                     // fetchPriority="low"
                     className={`rounded-lg w-full h-full object-contain transition-opacity duration-700 ${loadedImages[index % 9] ? "opacity-100" : "opacity-0"} ${erroredImages[index % 9] ? "hidden" : ""}`}
