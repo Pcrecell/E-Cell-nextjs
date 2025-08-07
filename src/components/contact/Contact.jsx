@@ -490,6 +490,9 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
+      <div className = "relative z-10">
+      <Footer />
+      </div>
     </>
   );
 };
