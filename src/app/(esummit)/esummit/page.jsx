@@ -1,9 +1,9 @@
-import Hero from "@/components/esummit/Hero-section/Hero";
+import {ESummit} from "@/components/coming-soon/ESummit";
 
-export default function HomePage() {
+export default function ESummit_Page() {
   return (
     <main>
-      <Hero />
+      <ESummit />
     </main>
   )
 }

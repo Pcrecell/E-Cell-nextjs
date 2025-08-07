@@ -5,7 +5,7 @@
 import { ecell_events } from "../../../public/images/image-links";
 import EventCarousel from "./EventCarousel";
 import HorizontalCardScroll from "./HorizontalCardScroll";
-import { Anton, Poppins } from "next/font/google"
+import { Anton } from "next/font/google"
 
 const anton = Anton({
   subsets: ['latin'],

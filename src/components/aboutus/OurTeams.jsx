@@ -3,6 +3,13 @@
 import React, { useState } from "react";
 // import JoinUsPopup from "../JoinUsPopup/JoinUsPopup";          //temp disabled
 import KiteBackground from "./KiteBackground";
+import { Poppins } from "next/font/google"
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400'],
+  display: 'swap',
+})
 
 const OurTeams = () => {
   const [isJoinPopupOpen, setIsJoinPopupOpen] = useState(false);
