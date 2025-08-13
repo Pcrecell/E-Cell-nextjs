@@ -49,8 +49,8 @@ const events = [
     id: "esummit",
     title: "E-Summit",
     description: "The flagship fest of KIIT E-Cell, E-Summit is a vibrant mix of startup showcases, fun sub-events, and entrepreneurial action, all packed into one high-energy celebration of innovation!",
-    mainLogo: "https://i.postimg.cc/sxy6D6Fg/E-Summit-2019-Word-Mark-3.png",
-    link: "/esummit",
+    mainLogo: "https://ik.imagekit.io/ecellkiit/E-Cell%20Website/logo.png?updatedAt=1755075880371",
+    link: "https://esummit.kiitecell.org/",
     logoClassName: "w-[85%] h-[85%]",
   },
   {

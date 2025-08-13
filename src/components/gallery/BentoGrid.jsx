@@ -1,10 +1,8 @@
 "use client"
 
 import { useState } from 'react';
-import { Skeleton } from '@mui/material';
+import Image from 'next/image';
 import PolaroidImages from "./PolaroidImages";
-
-
 
 const eventColors = {
   'hult-prize': '#ff0ee0',  
@@ -14,7 +12,6 @@ const eventColors = {
   'i-camp': '#23A7DC', 
   'ecell-life': 'white',
 };
-
 
 const eventPaths = {
   'hult-prize': 'gallery/hult-prize',
@@ -27,7 +24,6 @@ const eventPaths = {
 
 export default function BentoGrid() {
   const [hoveredEvent, setHoveredEvent] = useState(null);
-  const [loadedImages, setLoadedImages] = useState({});
 
   const handleMouseEnter = (eventName) => {
     setHoveredEvent(eventName);
@@ -36,8 +32,6 @@ export default function BentoGrid() {
   const handleMouseLeave = () => {
     setHoveredEvent(null);
   };
-
-
 
   const getImageClass = (eventName) => {
     if (hoveredEvent === null) return ""; 
@@ -60,29 +54,6 @@ export default function BentoGrid() {
     // Show borders when not hovering over ecell-life
     return 'border-b-white border-b-2 border-l-2 border-l-white';
   };
-
-  // Helper to render image with skeleton
-  const renderImageWithSkeleton = (src, className, style = {}, alt = "") => (
-    <div className="relative w-full h-full">
-      {!loadedImages[src] && (
-        <Skeleton
-          variant="rectangular"
-          width="100%"
-          height="100%"
-          className="w-full h-full rounded-xl absolute top-0 left-0"
-          sx={{ borderRadius: 2, zIndex: 10, position: 'absolute', top: 0, left: 0 }}
-          animation="pulse"
-        />
-      )}
-      <img
-        src={src}
-        alt={alt}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${loadedImages[src] ? 'opacity-100' : 'opacity-0'} ${className || ''}`}
-        style={{ ...style, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-        onLoad={() => setLoadedImages(prev => ({ ...prev, [src]: true }))}
-      />
-    </div>
-  );
 
   // SVG paths for each event group's border
   const getEventBorderPath = (eventName) => {
@@ -262,10 +233,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('hult-prize')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/43HHmXZW/DSC05952-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('hult-prize')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/43HHmXZW/DSC05952-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('hult-prize')}`}
+            />
           </a>
           {/* Hult Prize */}
           <a 
@@ -274,10 +248,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('hult-prize')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/1XyFYN9y/02680307967d39bfd4106f50d0247cfb00288b0b.jpg",
-              `object-cover object-top rounded-tr-2xl transition-all duration-300 ${getImageClass('hult-prize')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/1XyFYN9y/02680307967d39bfd4106f50d0247cfb00288b0b.jpg"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover object-top rounded-tr-2xl transition-all duration-300 ${getImageClass('hult-prize')}`}
+            />
           </a>
 
           {/* Esummit */}
@@ -300,10 +277,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('esummit')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/vTcJd25x/DSC08640-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('esummit')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/vTcJd25x/DSC08640-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('esummit')}`}
+            />
           </a>
 
           {/* Build-School */}
@@ -313,10 +293,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('build-school')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/Kvd2mbqG/DSC-0652-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('build-school')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/Kvd2mbqG/DSC-0652-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('build-school')}`}
+            />
           </a>
           {/* Build-School */}
           <a 
@@ -325,10 +308,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('build-school')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/6QhJVv9q/DSC-0688-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('build-school')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/6QhJVv9q/DSC-0688-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('build-school')}`}
+            />
           </a>
 
           {/* Build-School */}   
@@ -338,10 +324,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('build-school')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/yNKCSPC2/DSC-0693-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('build-school')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/yNKCSPC2/DSC-0693-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('build-school')}`}
+            />
           </a>
           {/* Build-School */}
           <a 
@@ -350,10 +339,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('build-school')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/jSPr51mz/DSC-0669-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('build-school')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/jSPr51mz/DSC-0669-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('build-school')}`}
+            />
           </a>
 
           {/* Esummit */}
@@ -363,10 +355,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('esummit')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/NMfhdjM4/DSC08559-1-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('esummit')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/NMfhdjM4/DSC08559-1-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('esummit')}`}
+            />
           </a>
           {/* Build-School */}
           <a 
@@ -375,10 +370,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('build-school')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/05F8G5fD/Group-5.png",
-              `object-cover transition-all duration-300 ${getImageClass('build-school')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/05F8G5fD/Group-5.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('build-school')}`}
+            />
           </a>
 
           {/* Maverick */}
@@ -388,7 +386,7 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('maverick')}
             onMouseLeave={handleMouseLeave}
           >
-              <img src="https://i.postimg.cc/Zn5JFfTR/Whats-App-Image-2025-07-09-at-00-26-43-39581389-removebg-preview.png" alt="" className="w-[70%] h-[70%] object-contain " />
+              <img src="https://i.postimg.cc/Zn5JFfTR/Whats-App-Image-2025-07-09-at-00-26-43-39581389-removebg-preview.png" alt="" className={`w-[70%] h-[70%] object-contain ${getImageClass('maverick')}`} />
           </a>
           {/* Maverick */}
           <a 
@@ -397,10 +395,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('maverick')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/VvhcrPzF/D24-0108-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('maverick')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/VvhcrPzF/D24-0108-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('maverick')}`}
+            />
           </a>
 
           {/* I-Camp */}
@@ -423,10 +424,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('i-camp')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/Kjj288hz/ADI-2748-1-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('i-camp')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/Kjj288hz/ADI-2748-1-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('i-camp')}`}
+            />
           </a>
           {/* I-Camp */}
           <a 
@@ -435,10 +439,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('i-camp')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/DZBhhbDH/ADI-2346-1-1.png",
-              `object-cover transition-all duration-300 ${getImageClass('i-camp')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/DZBhhbDH/ADI-2346-1-1.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('i-camp')}`}
+            />
           </a>
           {/* Maverick */}
           <a 
@@ -447,12 +454,14 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('maverick')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://i.postimg.cc/Mpfn5Yyy/16a9022cddb2a6ca3fd4768deb9d5c84e1dd4f90.jpg",
-              `object-cover transition-all duration-300 ${getImageClass('maverick')}`
-            )}
+            <Image
+              src="https://i.postimg.cc/Mpfn5Yyy/16a9022cddb2a6ca3fd4768deb9d5c84e1dd4f90.jpg"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('maverick')}`}
+            />
           </a>
-
 
           {/* ecell-life --- 1*/}
           <a 
@@ -461,21 +470,28 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('ecell-life')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://ik.imagekit.io/ilgcom35w/ecell-life-1.png?updatedAt=1753542373000",
-              `object-cover transition-all duration-300 ${getImageClass('ecell-life')}`
-            )}
-          </a>{/* ecell-life --- 2*/}
+            <Image
+              src="https://ik.imagekit.io/ilgcom35w/ecell-life-1.png?updatedAt=1753542373000"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('ecell-life')}`}
+            />
+          </a>
+          {/* ecell-life --- 2*/}
           <a 
             href={`/${eventPaths['ecell-life']}`}
             className={`bg-none col-span-6 row-span-3 cursor-pointer transition-all duration-300 ${getDivClass('ecell-life')}`}
             onMouseEnter={() => handleMouseEnter('ecell-life')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://ik.imagekit.io/ilgcom35w/ecell-life-2.png?updatedAt=1753542389172",
-              `object-cover transition-all duration-300 ${getImageClass('ecell-life')}`
-            )}
+            <Image
+              src="https://ik.imagekit.io/ilgcom35w/ecell-life-2.png?updatedAt=1753542389172"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 ${getImageClass('ecell-life')}`}
+            />
           </a>     
           {/* ecell-life ----> Main logo*/}  
           <a 
@@ -484,10 +500,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('ecell-life')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://ik.imagekit.io/fhervghik/Group%2011.png",
-               `object-cover transition-all duration-300 rounded-bl-2xl ${getImageClass('ecell-life')}`
-            )}
+            <Image
+              src="https://ik.imagekit.io/ecellkiit/E-Cell%20Website/Group%2011.webp?updatedAt=1755115332017"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 rounded-bl-2xl ${getImageClass('ecell-life')}`}
+            />
           </a>
           {/* ecell-life --- 3*/}
           <a 
@@ -496,10 +515,13 @@ export default function BentoGrid() {
             onMouseEnter={() => handleMouseEnter('ecell-life')}
             onMouseLeave={handleMouseLeave}
           >
-            {renderImageWithSkeleton(
-              "https://ik.imagekit.io/ilgcom35w/ecell-life-3.png?updatedAt=1753542401519",
-              `object-cover transition-all duration-300 rounded-br-2xl ${getImageClass('ecell-life')}`
-            )}
+            <Image
+              src="https://ik.imagekit.io/ilgcom35w/ecell-life-3.png?updatedAt=1753542401519"
+              alt=""
+              width={1000}
+              height={1000}
+              className={`w-full h-full object-cover transition-all duration-300 rounded-br-2xl ${getImageClass('ecell-life')}`}
+            />
           </a>
         </div>
       </div>

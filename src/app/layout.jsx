@@ -1,17 +1,26 @@
+'use client'; 
+
+import NavbarD from "@/components/ui/navbar/NavbarD";
+import Footer from "@/components/ui/Footer/Footer";
+import PageTransition from "@/components/shared/PageTransition";
+import { usePathname } from "next/navigation";
 import "./globals.css";
 
-export const metadata = {
-  title: 'KIIT E-Cell | Imagine, Innovate, Implement',
-  description: 'Official website of KIIT E-Cell - Fostering entrepreneurship and innovation',
-  keywords: 'KIIT, E-Cell, Entrepreneurship, Innovation, Startup, Business',
-};
+
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+  const shouldShowFooter = pathname !== "/contact";
+
   return (
-    <html lang="en">
-      <body>
-        {children}
+    <html>
+      <body>        
+        <div className="bg-black text-white overflow-x-hidden">
+          <NavbarD />
+          <PageTransition>{children}</PageTransition>
+          {shouldShowFooter && <Footer />}
+        </div>
       </body>
     </html>
-  )
+  );
 }

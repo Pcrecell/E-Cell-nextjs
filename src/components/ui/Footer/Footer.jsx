@@ -99,9 +99,9 @@ const Footer = () => {
                 Our Initiatives
               </h3>
               <ul className="space-y-2 text-sm text-center">
-                <a href="/esummit">
+                <a href="https://esummit.kiitecell.org">
                   <li className="hover:text-blue-300 transition-colors duration-150 cursor-pointer">
-                    E-summit
+                    E-Summit
                   </li>
                 </a>
                 <a href="/i-camp">
@@ -234,9 +234,9 @@ const Footer = () => {
               Our Initiatives
             </h3>
             <ul className="space-y-1 text-base text-center sm:text-start">
-              <a href="/esummit">
+              <a href="https://esummit.kiitecell.org">
                 <li className="hover:text-blue-300 transition-colors duration-150 cursor-pointer">
-                  E-summit
+                  E-Summit
                 </li>
               </a>
               <a href="/i-camp">

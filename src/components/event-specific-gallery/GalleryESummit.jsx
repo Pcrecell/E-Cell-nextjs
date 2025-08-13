@@ -158,7 +158,7 @@ const StatsSection = ({ mode, onHoverChange, selectedMode, onModeSelect }) => {
           entrepreneurship across diverse sectors and backgrounds.
         </p>
         <a
-          href="/esummit"
+          href="https://esummit.kiitecell.org"
           className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-colors flex items-center justify-center text-center"
           tabIndex={0}
           style={{ display: 'inline-block' }}
